@@ -1,0 +1,21 @@
+.titulo{
+    text-align:center;
+    font-size: 30px;
+    color: rgb(219, 232, 232);
+}
+.align-item{
+    align-items: center;
+    display: flex;
+    grid-column: auto;
+    flex-direction: column;
+    padding: 10px;
+}
+.figure{
+    height: 100px;
+    align-items: center;
+   
+}
+.figure-img{
+    height: auto;
+    
+}

@@ -1,0 +1,24 @@
+<div>
+  <div class="card">
+    <div class="card-body">
+      <h3>listar tarjeta</h3>
+      <table class="table table-dark table-striped">
+        <tbody>
+          <tr *ngFor="let list of listTarget">
+            <td>{{list.titular}}</td>
+            <td>{{list.numeroTarjeta}}</td>
+            <td>{{list.fechaExpiracion}}</td>
+            <td id="{{list.id}}">
+              <button (click)="editTarget(list)"  type="button" class="m-2 btn btn-outline-success">
+                <i class="fa-solid fa-square-pen"></i>
+              </button>
+              <button (click)="deleteTarget(list.id)" type="button" class="m-2 btn btn-outline-danger">
+                <i class="fa-solid  fa-trash-can"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

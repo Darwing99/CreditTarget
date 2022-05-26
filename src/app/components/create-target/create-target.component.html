@@ -1,0 +1,99 @@
+<div >
+  <div class="card">
+    <div class="card-body">
+      <h5 class="mb-3">{{titulo}} 
+        <div *ngIf="loading" class="sk-folding-cube float-end">
+          <div class="sk-cube1 sk-cube"></div>
+          <div class="sk-cube2 sk-cube"></div>
+          <div class="sk-cube4 sk-cube"></div>
+          <div class="sk-cube3 sk-cube"></div>
+        </div>
+      </h5>
+      
+      <form [formGroup]="form" (ngSubmit)="saveTarget()">
+        <div class="input-group input-group-lg mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            ><i
+              class="fas fa-user"
+              [class.green-icon]="this.form.get('titular')?.valid"
+              [class.red-icon]="this.form.get('titular')?.invalid && this.form.get('titular')?.touched"
+            >
+            </i
+          ></span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="titular"
+            formControlName="titular"
+            aria-label="Titular"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group input-group-lg mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            ><i
+              class="fas fa-credit-card"
+              [class.green-icon]="this.form.get('numeroTarjeta')?.valid"
+              [class.red-icon]="this.form.get('numeroTarjeta')?.invalid && this.form.get('numeroTarjeta')?.touched "
+            ></i>
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            [maxlength]="30"
+            [minlength]="10"
+            formControlName="numeroTarjeta"
+            placeholder="numeroTarjeta"
+            aria-label="cardnumber"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text" id="basic-addon1"
+                ><i
+                  class="fas fa-calendar-alt"
+                  [class.green-icon]="this.form.get('fechaExpiracion')?.valid"
+                  [class.red-icon]="this.form.get('fechaExpiracion')?.invalid && this.form.get('fechaExpiracion')?.touched"
+                ></i
+              ></span>
+              <input
+                type="datetime"
+                class="form-control"
+                formControlName="fechaExpiracion"
+                placeholder="MM/YY"
+                maxlength="5"
+                aria-label="titular"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text" id="basic-addon1"
+                ><i
+                  class="fas fa-key"
+                  [class.green-icon]="this.form.get('cvv')?.valid"
+                  [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched"
+                ></i
+              ></span>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="CVC"
+                [maxLength]="3"
+                formControlName="cvv"
+                aria-label="cvc"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="d-grid gap-2 col mx-auto">
+            <button [disabled]="this.form.invalid" class="btn btn-primary" type="submit">{{button}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
